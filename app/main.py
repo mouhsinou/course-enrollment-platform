@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from app.routers import auth, users, courses, enrollments
@@ -45,8 +45,6 @@ def health():
 
 
 # Exception handlers
-@app.exception_handler(Exception)
-from fastapi import Request
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     """Global exception handler for unhandled exceptions (DEBUG MODE ENABLED)"""
