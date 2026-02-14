@@ -130,11 +130,22 @@ alembic downgrade -1
 
 ## 🚀 Running the Application
 
-### Development Server
+### 4. Start Backend Server
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+### 5. Start Frontend (New!)
+
+Open a new terminal:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Visit **http://localhost:5173** to use the application.
 
 The API will be available at:
 - **API**: http://localhost:8000
@@ -271,76 +282,7 @@ The test suite includes:
 - ✅ Authorization tests (RBAC enforcement)
 - ✅ Validation tests (input validation, error handling)
 
-## 🚢 Deployment
 
-### Render Deployment (Recommended)
-
-**Quick Deploy to Render:**
-
-1. **Push to GitHub:**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/course-enrollment-platform.git
-   git push -u origin main
-   ```
-
-2. **Create Web Service on Render:**
-   - Go to https://dashboard.render.com
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository
-   - Configure:
-     - **Build Command**: `./build.sh`
-     - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-
-3. **Add PostgreSQL Database:**
-   - Click "New +" → "PostgreSQL"
-   - Copy the Internal Database URL
-
-4. **Set Environment Variables:**
-   ```
-   DATABASE_URL=<your-postgres-url>
-   SECRET_KEY=<generate-secure-key>
-   ALGORITHM=HS256
-   ACCESS_TOKEN_EXPIRE_MINUTES=30
-   DEBUG=False
-   ```
-
-5. **Deploy!** Render will automatically build and deploy your app.
-
-**See [DEPLOIEMENT_RENDER.md](DEPLOIEMENT_RENDER.md) for detailed French instructions.**
-
-### Other Platforms
-
-**Railway, Heroku, or AWS:**
-
-```env
-DATABASE_URL=postgresql://user:pass@host:5432/dbname
-SECRET_KEY=generate-a-strong-secret-key
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-DEBUG=False
-```
-
-### Deployment Platforms
-
-**Render, Railway, or Heroku:**
-1. Create a new web service
-2. Connect your repository
-3. Set environment variables
-4. Add PostgreSQL database
-5. Deploy!
-
-**Build Command:**
-```bash
-pip install -r requirements.txt && alembic upgrade head
-```
-
-**Start Command:**
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port $PORT
-```
 
 ## 🤝 Contributing
 
@@ -352,8 +294,4 @@ This project is for educational purposes.
 
 ## 👨‍💻 Author
 
-Created as part of the AltSchool of Engineering Backend Development course.
-
-## 📞 Support
-
-For issues or questions, please check the API documentation at `/docs` or contact the development team.
+MAMA Moussinou
